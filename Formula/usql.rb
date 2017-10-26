@@ -18,12 +18,11 @@ class Usql < Formula
     ENV["GOPATH"] = buildpath
 
     (buildpath/"src/github.com/xo/usql").install buildpath.children
-    cd "src/github.com/xo/usql" do
-      system
-        "dep",      "ensure"
 
-      system
-        "go",       "build",
+    cd "src/github.com/xo/usql" do
+      system "dep", "ensure"
+
+      system "go", "build",
         "-tags",    $tags,
         "-ldflags", $ldflags,
         "-o",       bin/"usql"
