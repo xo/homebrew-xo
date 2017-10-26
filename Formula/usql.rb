@@ -11,11 +11,17 @@ class Usql < Formula
   url      "https://github.com/xo/usql/archive/#{$ver}.tar.gz"
   sha256   $hash
 
+  depends_on "go"  => :build
+  depends_on "dep" => :build
+
   def install
     ENV["GOPATH"] = buildpath
 
     (buildpath/"src/github.com/xo/usql").install buildpath.children
     cd "src/github.com/xo/usql" do
+      system
+        "dep",      "ensure"
+
       system
         "go",       "build",
         "-tags",    $tags,
