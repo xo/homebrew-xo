@@ -20,7 +20,7 @@ class Usql < Formula
     (buildpath/"src/github.com/xo/usql").install buildpath.children
 
     cd "src/github.com/xo/usql" do
-      system "dep", "ensure"
+      system "dep", "ensure", "--vendor-only"
 
       system "go", "build",
         "-tags",    $tags,
