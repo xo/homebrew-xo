@@ -24,6 +24,15 @@ class InstantclientSdk < Formula
     (lib+"pkgconfig/oci8.pc").write pc_file
   end
 
+  def check_pc(name, expected)
+    assert_match expected, shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --#{name} oci8")
+  end
+
+  test do
+    check_pc("modversion", "12.1.0.2.0")
+    check_pc("cflags", "-I/usr/local/opt/instantclient-sdk/lib/sdk/include")
+  end
+
   def pc_file; <<~EOS
     prefix=#{opt_prefix}
 
