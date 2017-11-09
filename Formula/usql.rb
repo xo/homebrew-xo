@@ -1,5 +1,5 @@
-$ver     = "v0.6.0-rc1"
-$hash    = "dab5524f7f5f96a24baac8cb5281cd33b5e1054d554a6f4647a3bb788752a578"
+$ver     = "v0.6.0-rc2"
+$hash    = "77682a6f2aa93ab1314a191edcb1cccda1dcab1731b0f65204372ce95872e444"
 $pkg     = "github.com/xo/usql"
 
 $tags    = %w(most fts5 vtable json1 no_adodb)
