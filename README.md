@@ -18,12 +18,6 @@ $ brew install xo
 # install usql with "most" drivers
 $ brew install usql
 
-# --------------------------------------------------
-
-# install instantclient-sdk for oracle support -- only needed if using xo/usql
-# with oracle databases (see notes below)
-$ brew install instantclient-sdk
-
 # install xo with oracle support
 $ brew install --with-oracle xo
 
@@ -33,8 +27,13 @@ $ brew install --with-oracle --with-odbc usql
 
 ### Oracle Notes
 
-This is not compatible with the InstantClientTap. Please uninstall it first,
-before using the formulae in this repository:
+Oracle database support for `xo` and `usql` can be enabled by passing the
+`--with-oracle` option during install or upgrade. Please note, however, that
+the `xo` and `usql` formulae contained in this repository are not compatible
+with the InstantClientTap/instantclient/instantclient-* formulae.
+
+Please uninstall that tap and any installed formulae first before installing
+the `xo` or `usql` formulae:
 
 ```sh
 # uninstall the instantclient-sdk formula
