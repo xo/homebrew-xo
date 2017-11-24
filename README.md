@@ -4,7 +4,7 @@ Provides Homebrew formulas for [xo](https://github.com/xo/xo),
 [usql](https://github.com/xo/usql), and a pkg-config'urable version of Oracle
 InstantClient.
 
-## Installation
+## Installing
 
 Install and use in the normal way with Homebrew:
 
@@ -42,4 +42,38 @@ $ brew uninstall InstantClientTap/instantclient/instantclient-sdk
 
 # remove conflicting tap
 $ brew untap InstantClientTap/instantclient
+```
+
+## Uninstalling
+
+Uninstall in the usual way with Homebrew:
+
+```sh
+# uninstall xo
+$ brew uninstall xo
+
+# uninstall usql
+$ brew uninstall usql
+
+# remove tap
+$ brew untap xo/xo
+```
+
+## Upgrading
+
+Upgrade in the usual way with Homebrew:
+
+```sh
+# upgrade formulae
+$ brew upgrade
+
+# upgrade xo
+$ brew upgrade xo
+
+# upgrade usql
+$ brew upgrade usql
+
+# upgrade xo / usql with oracle and odbc support (see oracle installation notes above)
+$ brew upgrade --with-oracle xo
+$ brew upgrade --with-oracle --with-odbc usql
 ```
