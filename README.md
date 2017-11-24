@@ -1,10 +1,12 @@
 # About homebrew-xo
 
-Homebrew formulas for [xo](https://github.com/xo/xo) and [usql](https://github.com/xo/usql).
+Provides Homebrew formulas for [xo](https://github.com/xo/xo),
+[usql](https://github.com/xo/usql), and a pkg-config'urable version of Oracle
+InstantClient.
 
 ## Installation
 
-Use in the usual way with Homebrew:
+Install and use in the normal way with Homebrew:
 
 ```sh
 # add tap
@@ -16,8 +18,14 @@ $ brew install xo
 # install usql with "most" drivers
 $ brew install usql
 
-# install instantclient-sdk for oracle support (see note below)
+# --------------------------------------------------
+
+# install instantclient-sdk for oracle support -- only needed if using xo/usql
+# with oracle databases (see notes below)
 $ brew install instantclient-sdk
+
+# install xo with oracle support
+$ brew install --with-oracle xo
 
 # install usql with oracle and odbc support
 $ brew install --with-oracle --with-odbc usql
@@ -32,6 +40,6 @@ before using the formulae in this repository:
 # uninstall the instantclient-sdk formula
 $ brew uninstall InstantClientTap/instantclient/instantclient-sdk
 
-# untap
+# remove conflicting tap
 $ brew untap InstantClientTap/instantclient
 ```
