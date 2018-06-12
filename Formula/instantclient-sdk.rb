@@ -4,7 +4,7 @@ class InstantclientSdk < Formula
   url "https://raw.githubusercontent.com/strongloop/loopback-oracle-builder/master/deps/oracle/MacOSX/x64/instantclient-basiclite-macos.x64-12.1.0.2.0.zip"
   sha256 "ac7e97661a2bfac69b3262150641914f456c7806ba2a7850669fb83abac120e8"
 
-  depends_on "pkg-config" => :run
+  depends_on "pkg-config" => :build
 
   resource "instantclient-sdk" do
     url "https://raw.githubusercontent.com/strongloop/loopback-oracle-builder/master/deps/oracle/MacOSX/x64/instantclient-sdk-macos.x64-12.1.0.2.0.zip"
