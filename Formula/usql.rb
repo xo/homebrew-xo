@@ -1,8 +1,8 @@
-$ver     = "v0.6.0"
-$hash    = "70c2cdfec6e1b4cc72d31d1f8bd92b2efb382f8ba89320c1425d5eb3266a0c9c"
+$ver     = "v0.7.0-rc4"
+$hash    = "d25f7de83523d4ea297b7e1beae512fe21d81b3c96bb9d3c3f13f6f848463e51"
 $pkg     = "github.com/xo/usql"
 
-$tags    = %w(most fts5 vtable json1 no_adodb)
+$tags    = %w(most fts5 vtable json1 no_adodb no_ql)
 $ldflags = "-s -w -X #{$pkg}/text.CommandVersion=#{$ver}"
 
 class Usql < Formula
@@ -16,12 +16,11 @@ class Usql < Formula
   option "with-odbc",   "Build with ODBC (unixodbc) support"
 
   depends_on "go"  => :build
-  depends_on "dep" => :build
 
   if build.with? "oracle" then
     $tags   << "oracle"
     depends_on "pkg-config"        => :build,
-               "instantclient-sdk" => [:build, :run]
+               "instantclient-sdk" => :build
   end
 
   if build.with? "odbc" then
@@ -40,9 +39,9 @@ class Usql < Formula
     (buildpath/"src/#{$pkg}").install buildpath.children
 
     cd "src/#{$pkg}" do
-      system "dep", "ensure", "--vendor-only"
+      system "go", "get", "-u", "golang.org/x/vgo"
 
-      system "go", "build",
+      system "vgo", "build",
         "-tags",    $tags.join(" "),
         "-ldflags", $ldflags,
         "-o",       bin/"usql"
