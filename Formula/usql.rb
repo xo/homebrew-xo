@@ -1,6 +1,6 @@
+$pkg     = "github.com/xo/usql"
 $ver     = "v0.7.0-rc4"
 $hash    = "d25f7de83523d4ea297b7e1beae512fe21d81b3c96bb9d3c3f13f6f848463e51"
-$pkg     = "github.com/xo/usql"
 
 $tags    = %w(most fts5 vtable json1 no_adodb no_ql)
 $ldflags = "-s -w -X #{$pkg}/text.CommandVersion=#{$ver}"
@@ -15,7 +15,7 @@ class Usql < Formula
   option "with-oracle", "Build with Oracle database (instantclient) support"
   option "with-odbc",   "Build with ODBC (unixodbc) support"
 
-  depends_on "go"  => :build
+  depends_on "vgo" => :build
 
   if build.with? "oracle" then
     $tags   << "oracle"
@@ -39,8 +39,6 @@ class Usql < Formula
     (buildpath/"src/#{$pkg}").install buildpath.children
 
     cd "src/#{$pkg}" do
-      system "go", "get", "-u", "golang.org/x/vgo"
-
       system "vgo", "build",
         "-tags",    $tags.join(" "),
         "-ldflags", $ldflags,
