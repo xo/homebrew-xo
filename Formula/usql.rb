@@ -1,6 +1,6 @@
 $pkg     = "github.com/xo/usql"
-$ver     = "v0.7.0-rc4"
-$hash    = "d25f7de83523d4ea297b7e1beae512fe21d81b3c96bb9d3c3f13f6f848463e51"
+$ver     = "v0.7.0"
+$hash    = "679e5420b870be22e209c3931bb408c8c614e4265422128c2f99a7b168b57eda"
 
 $tags    = %w(most fts5 vtable json1 no_adodb no_ql)
 $ldflags = "-s -w -X #{$pkg}/text.CommandVersion=#{$ver}"
