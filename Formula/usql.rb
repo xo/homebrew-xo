@@ -19,8 +19,8 @@ class Usql < Formula
 
   if build.with? "oracle" then
     $tags   << "oracle"
-    depends_on "pkg-config"        => :build,
-               "instantclient-sdk" => :build
+    depends_on "pkg-config"
+    depends_on "instantclient-sdk"
   end
 
   if build.with? "odbc" then
