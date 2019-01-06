@@ -1,8 +1,8 @@
 $pkg     = "github.com/xo/usql"
-$ver     = "v0.7.0"
-$hash    = "679e5420b870be22e209c3931bb408c8c614e4265422128c2f99a7b168b57eda"
+$ver     = "v0.7.1"
+$hash    = "f9356fc768baeeec83b9371a076852a44dc74c3caa1b9003985dd5bc31a43b04"
 
-$tags    = %w(most fts5 vtable json1 no_adodb no_ql)
+$tags    = %w(most sqlite_app_armor sqlite_fts5 sqlite_icu sqlite_introspect sqlite_json1 sqlite_stat4 sqlite_userauth sqlite_vtable no_adodb no_ql)
 $ldflags = "-s -w -X #{$pkg}/text.CommandVersion=#{$ver}"
 
 class Usql < Formula
