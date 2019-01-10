@@ -15,7 +15,7 @@ class Usql < Formula
   option "with-oracle", "Build with Oracle database (instantclient) support"
   option "with-odbc",   "Build with ODBC (unixodbc) support"
 
-  depends_on "vgo" => :build
+  depends_on "go" => :build
 
   if build.with? "oracle" then
     $tags   << "oracle"
@@ -39,7 +39,7 @@ class Usql < Formula
     (buildpath/"src/#{$pkg}").install buildpath.children
 
     cd "src/#{$pkg}" do
-      system "vgo", "build",
+      system "go", "build",
         "-tags",    $tags.join(" "),
         "-ldflags", $ldflags,
         "-o",       bin/"usql"
