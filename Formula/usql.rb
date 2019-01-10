@@ -29,9 +29,6 @@ class Usql < Formula
   end
 
   def install
-    ENV["GOPATH"]      = buildpath
-    ENV["GO111MODULE"] = "on"
-
     if build.with? "oracle"
       ENV["PKG_CONFIG"] = "#{Formula["pkg-config"].opt_bin}/pkg-config"
       ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["instantclient-sdk"].lib}/pkgconfig"
@@ -40,6 +37,7 @@ class Usql < Formula
     (buildpath/"src/#{$pkg}").install buildpath.children
 
     cd "src/#{$pkg}" do
+      system "go", "mod", "download"
       system "go", "build",
         "-tags",    $tags.join(" "),
         "-ldflags", $ldflags,
@@ -48,8 +46,6 @@ class Usql < Formula
   end
 
   test do
-    ENV["GOPATH"]      = testpath.realpath
-    ENV["GO111MODULE"] = "on"
     output = shell_output("#{bin}/usql --version")
     assert_match "usql #{$ver}", output
   end
