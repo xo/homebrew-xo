@@ -29,7 +29,8 @@ class Usql < Formula
   end
 
   def install
-    ENV["GOPATH"]     = buildpath
+    ENV["GOPATH"]      = buildpath
+    ENV["GO111MODULE"] = "on"
 
     if build.with? "oracle"
       ENV["PKG_CONFIG"] = "#{Formula["pkg-config"].opt_bin}/pkg-config"
@@ -47,7 +48,8 @@ class Usql < Formula
   end
 
   test do
-    ENV["GOPATH"] = testpath.realpath
+    ENV["GOPATH"]      = testpath.realpath
+    ENV["GO111MODULE"] = "on"
     output = shell_output("#{bin}/usql --version")
     assert_match "usql #{$ver}", output
   end
