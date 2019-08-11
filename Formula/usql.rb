@@ -1,9 +1,10 @@
 $pkg     = "github.com/xo/usql"
-$ver     = "v0.7.1"
-$hash    = "18f541dab352931937276bec5f723da94356a804c894359c6d428ad980eb14fc"
+$ver     = "v0.7.5"
+$hash    = "5f0478611ecaa8f069796462fdf81386fe8f53ec52aa2ec90db6e066010b597f"
 
+$cmdver  = $ver[1..-1]
 $tags    = %w(most sqlite_app_armor sqlite_fts5 sqlite_icu sqlite_introspect sqlite_json1 sqlite_stat4 sqlite_userauth sqlite_vtable no_adodb no_ql)
-$ldflags = "-s -w -X #{$pkg}/text.CommandVersion=#{$ver}"
+$ldflags = "-s -w -X #{$pkg}/text.CommandVersion=#{$cmdver}"
 
 class Usql < Formula
   desc     "universal command-line SQL client interface"
@@ -47,6 +48,6 @@ class Usql < Formula
 
   test do
     output = shell_output("#{bin}/usql --version")
-    assert_match "usql #{$ver}", output
+    assert_match "usql #{$cmdver}", output
   end
 end
