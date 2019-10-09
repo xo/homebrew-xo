@@ -30,7 +30,7 @@ class Usql < Formula
     depends_on "unixodbc"
   end
 
-  if !build.without? "icu4c" then
+  unless build.without? "icu4c" then
     $tags   << "sqlite_icu"
     depends_on "icu4c"
   end
