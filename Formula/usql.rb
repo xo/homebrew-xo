@@ -16,7 +16,8 @@ class Usql < Formula
   option "with-oracle",  "Build with Oracle database (instantclient) support"
   option "with-odbc",    "Build with ODBC (unixodbc) support"
 
-  depends_on "go" => :build, "icu4c" => :build
+  depends_on "go" => :build
+  depends_on "icu4c" => :build
 
   if build.with? "oracle" then
     $tags   << "oracle"
