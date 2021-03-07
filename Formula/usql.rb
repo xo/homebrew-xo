@@ -1,9 +1,9 @@
 $pkg     = "github.com/xo/usql"
-$ver     = "v0.7.8"
-$hash    = "d8d07324afe2478068f99b79e35ad5f5c06fa0e0051504cff5bce592ee75c6c2"
+$ver     = "v0.8.2"
+$hash    = "4f9f8e26155900015abbc39d949201b5e34f6e6c38a5356cae94edb335b7436d"
 
 $cmdver  = $ver[1..-1]
-$tags    = %w(most sqlite_app_armor sqlite_icu sqlite_fts5 sqlite_introspect sqlite_json1 sqlite_stat4 sqlite_userauth sqlite_vtable no_adodb no_ql)
+$tags    = %w(most sqlite_app_armor sqlite_icu sqlite_fts5 sqlite_introspect sqlite_json1 sqlite_stat4 sqlite_userauth sqlite_vtable)
 $ldflags = "-s -w -X #{$pkg}/text.CommandVersion=#{$cmdver}"
 
 class Usql < Formula
@@ -13,17 +13,10 @@ class Usql < Formula
   url      "https://#{$pkg}/archive/#{$ver}.tar.gz"
   sha256   $hash
 
-  option "with-oracle",  "Build with Oracle database (instantclient) support"
-  option "with-odbc",    "Build with ODBC (unixodbc) support"
+  option "with-odbc", "Build with ODBC (unixodbc) support"
 
   depends_on "go" => :build
   depends_on "icu4c" => :build
-
-  if build.with? "oracle" then
-    $tags   << "oracle"
-    depends_on "pkg-config"
-    depends_on "instantclient-sdk"
-  end
 
   if build.with? "odbc" then
     $tags   << "odbc"
@@ -31,11 +24,6 @@ class Usql < Formula
   end
 
   def install
-    if build.with? "oracle"
-      ENV["PKG_CONFIG"] = "#{Formula["pkg-config"].opt_bin}/pkg-config"
-      ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["instantclient-sdk"].lib}/pkgconfig"
-    end
-
     (buildpath/"src/#{$pkg}").install buildpath.children
 
     cd "src/#{$pkg}" do
