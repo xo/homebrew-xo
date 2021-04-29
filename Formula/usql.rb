@@ -1,6 +1,6 @@
 $pkg     = "github.com/xo/usql"
-$ver     = "v0.8.2"
-$hash    = "4f9f8e26155900015abbc39d949201b5e34f6e6c38a5356cae94edb335b7436d"
+$ver     = "v0.9.0"
+$hash    = "062ad57edd429a8f86671715f4ffb59d93e30d7d1ccd68126dcd840fae80885c"
 
 $cmdver  = $ver[1..-1]
 $tags    = %w(most sqlite_app_armor sqlite_icu sqlite_fts5 sqlite_introspect sqlite_json1 sqlite_stat4 sqlite_userauth sqlite_vtable)
