@@ -1,9 +1,9 @@
 $pkg     = "github.com/xo/usql"
-$ver     = "v0.9.0"
-$hash    = "062ad57edd429a8f86671715f4ffb59d93e30d7d1ccd68126dcd840fae80885c"
+$ver     = "v0.9.1"
+$hash    = "5ec50736955623c298f9915ace08e453756e5655e3b22564782892962b0034cb"
 
 $cmdver  = $ver[1..-1]
-$tags    = %w(most sqlite_app_armor sqlite_icu sqlite_fts5 sqlite_introspect sqlite_json1 sqlite_stat4 sqlite_userauth sqlite_vtable)
+$tags    = %w(most sqlite_app_armor sqlite_icu sqlite_fts5 sqlite_introspect sqlite_json1 sqlite_stat4 sqlite_userauth sqlite_vtable no_adodb)
 $ldflags = "-s -w -X #{$pkg}/text.CommandVersion=#{$cmdver}"
 
 class Usql < Formula
