@@ -12,15 +12,10 @@ class InstantclientSdk < Formula
   end
 
   def install
-    %w(libclntsh.dylib libocci.dylib).each do |dylib|
-      ln_s "#{dylib}.19.8", dylib
-    end
     lib.install Dir["*.dylib*"]
-
     resource("instantclient-sdk").stage do
       lib.install ["sdk"]
     end
-
     (lib+"pkgconfig/oci8.pc").write pc_file
   end
 
