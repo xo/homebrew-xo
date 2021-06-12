@@ -1,19 +1,19 @@
 class InstantclientSdk < Formula
   desc "Oracle Instant Client SDK x64."
-  homepage "http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html"
-  url "https://raw.githubusercontent.com/strongloop/loopback-oracle-builder/master/deps/oracle/MacOSX/x64/instantclient-basiclite-macos.x64-12.1.0.2.0.zip"
-  sha256 "ac7e97661a2bfac69b3262150641914f456c7806ba2a7850669fb83abac120e8"
+  homepage "https://www.oracle.com/sg/database/technologies/instant-client/macos-intel-x86-downloads.html"
+  url "https://download.oracle.com/otn_software/mac/instantclient/198000/instantclient-basiclite-macos.x64-19.8.0.0.0dbru.zip"
+  sha256 "82fcc280726dafad0254f31a5dc7361c8ebce18e5eb4ed676a4143dda8aab9af"
 
   depends_on "pkg-config" => :build
 
   resource "instantclient-sdk" do
-    url "https://raw.githubusercontent.com/strongloop/loopback-oracle-builder/master/deps/oracle/MacOSX/x64/instantclient-sdk-macos.x64-12.1.0.2.0.zip"
-    sha256 "63582d9a2f4afabd7f5e678c39bf9184d51625c61e67372acdbc7b42ed8530ac"
+    url "https://download.oracle.com/otn_software/mac/instantclient/198000/instantclient-sdk-macos.x64-19.8.0.0.0dbru.zip"
+    sha256 "0fa8ae4c4418aa66ce875cf92e728dd7a81aeaf2e68e7926e102b5e52fc8ba4c"
   end
 
   def install
     %w(libclntsh.dylib libocci.dylib).each do |dylib|
-      ln_s "#{dylib}.12.1", dylib
+      ln_s "#{dylib}.19.8", dylib
     end
     lib.install Dir["*.dylib*"]
 
@@ -29,7 +29,7 @@ class InstantclientSdk < Formula
   end
 
   test do
-    check_pc("modversion", "12.1.0.2.0")
+    check_pc("modversion", "19.8.0.0.0")
     check_pc("cflags", "-I/usr/local/opt/instantclient-sdk/lib/sdk/include")
   end
 
