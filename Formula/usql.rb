@@ -22,18 +22,20 @@ class Usql < Formula
   def install
     (buildpath/"src/#{$pkg}").install buildpath.children
 
+    cmdver = ("#{self.version}")[1..-1]
     cd "src/#{$pkg}" do
       system "go", "mod", "download"
       system "go", "build",
         "-trimpath",
         "-tags",    $tags.join(" "),
-        "-ldflags", "-s -w -X #{$pkg}/text.CommandVersion=#{self.version[1..-1]}",
+        "-ldflags", "-s -w -X #{$pkg}/text.CommandVersion=#{cmdver}",
         "-o",       bin/"usql"
     end
   end
 
   test do
+    cmdver = ("#{self.version}")[1..-1]
     output = shell_output("#{bin}/usql --version")
-    assert_match "usql #{self.version[1..-1]}", output
+    assert_match "usql #{cmdver}", output
   end
 end
