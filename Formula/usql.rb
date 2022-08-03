@@ -2,12 +2,12 @@ $pkg     = "github.com/xo/usql"
 $tags    = %w(most sqlite_app_armor sqlite_icu sqlite_fts5 sqlite_introspect sqlite_json1 sqlite_stat4 sqlite_userauth sqlite_vtable no_adodb)
 
 class Usql < Formula
-  desc     "universal command-line SQL client interface"
+  desc "universal command-line SQL client interface"
   homepage "https://#{$pkg}"
-  head     "https://#{$pkg}.git"
-  url      "https://github.com/xo/usql/archive/v0.11.1.tar.gz"
-  version  "v0.11.1"
-  sha256   "66a84057ea4d795319dd20f6e1b85343fcc4c2770cfe9bb4582842d4d90d3932"
+  head "https://#{$pkg}.git"
+  url "https://github.com/xo/usql/archive/v0.11.1.tar.gz"
+  version "v0.11.1"
+  sha256 "66a84057ea4d795319dd20f6e1b85343fcc4c2770cfe9bb4582842d4d90d3932"
 
   option "with-odbc", "Build with ODBC (unixodbc) support"
 
