@@ -26,7 +26,7 @@ class Usql < Formula
       system "go", "build",
         "-trimpath",
         "-tags",    $tags.join(" "),
-        "-ldflags", "-s -w -X #{$pkg}/text.CommandVersion=#{self.ver}",
+        "-ldflags", "-s -w -X #{$pkg}/text.CommandVersion=#{self.version}",
         "-o",       bin/"usql"
     end
   end
