@@ -7,7 +7,7 @@ class Usql < Formula
   head     "https://#{$pkg}.git"
   url      "https://github.com/xo/usql/archive/v0.11.1.tar.gz"
   version  "v0.11.1"
-  sha256   "aabf703abe3a9e8d0823bbf74838ce6e3ffce862af2dfce4a2d571f2c73a4263"
+  sha256   "66a84057ea4d795319dd20f6e1b85343fcc4c2770cfe9bb4582842d4d90d3932"
 
   option "with-odbc", "Build with ODBC (unixodbc) support"
 
