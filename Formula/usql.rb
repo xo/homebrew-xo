@@ -25,6 +25,7 @@ class Usql < Formula
     cd "src/#{$pkg}" do
       system "go", "mod", "download"
       system "go", "build",
+        "-trimpath",
         "-tags",    $tags.join(" "),
         "-ldflags", "-s -w -X #{$pkg}/text.CommandVersion=#{self.version[1..-1]}",
         "-o",       bin/"usql"
