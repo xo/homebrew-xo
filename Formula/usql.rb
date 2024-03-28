@@ -5,8 +5,8 @@ class Usql < Formula
   desc "universal command-line SQL client interface"
   homepage "https://#{$pkg}"
   head "https://#{$pkg}.git"
-  url "https://github.com/xo/usql/archive/v0.18.0.tar.gz"
-  sha256 "e61ac9e44b2b3dcc54ca9ac4a1dd8de754bcedfc361a4bea7632508d30f31119"
+  url "https://github.com/xo/usql/archive/v0.18.1.tar.gz"
+  sha256 "692a3b30027b9a5bf8c814fbb051a7cf62f1b4895c397ae7bcc3a030cafd6f31"
 
   option "with-odbc", "Build with ODBC (unixodbc) support"
 
