@@ -4,8 +4,8 @@ class Xo < Formula
   desc "the templated code generator for databases"
   homepage "https://#{$pkg}"
   head "https://#{$pkg}.git"
-  url "https://github.com/xo/xo/archive/v1.0.1.tar.gz"
-  sha256 "9a36068c0e69f1da25ef4d3bf1070d8315bf32054d52f631388306c8b48d6b4d"
+  url "https://github.com/xo/xo/archive/v1.0.2.tar.gz"
+  sha256 "f5114ca06515ff1c1ee24d14ea05e483963aab5ee5dff76a7fb2941e10be4b9e"
 
   depends_on "go" => :build
 
